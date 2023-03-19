@@ -121,6 +121,18 @@ impl Solution {
 }
  
  // END SUBMISSION CODE
+
+ // above works, but there is probably a much nicer implementation possible using slice patterns
+ 
+// fn is_match(s: &[u8], p: &[u8]) -> bool {
+//     match (p, s) {
+//         ([x, b'*', subp..], [y, subs..]) if *x == b'.' || x == y => is_match(subs, p),
+//         ([_, b'*', subp..], _) => is_match(s, subp),
+//         ([x, subp..], [y, subs..]) if *x == b'.' || x == y => is_match(subs, subp),
+//         ([], s) => s.is_empty(),
+//         _ => false,
+//     }
+// }
  
  #[cfg(test)]
  mod tests {
