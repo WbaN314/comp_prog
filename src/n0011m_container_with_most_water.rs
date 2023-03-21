@@ -14,7 +14,7 @@ impl Solution {
         let mut right = height.len() - 1;
 
         let mut best = 0;
-        let mut current = 0;
+        let mut current;
         while left < right {
             current = (right - left) as i32 * min(height[left], height[right]);
 
