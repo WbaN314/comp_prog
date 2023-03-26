@@ -45,5 +45,18 @@ impl Solution {
  
      #[test]
      fn test_1() {
+        let inp = String::from("23");
+        let out = vec![
+            String::from("ad"),
+            String::from("bd"),
+            String::from("cd"),
+            String::from("ae"),
+            String::from("be"),
+            String::from("ce"),
+            String::from("af"),
+            String::from("bf"),
+            String::from("cf")
+        ];
+        assert_eq!(Solution::letter_combinations(inp), out)
      }
  }
