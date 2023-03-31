@@ -1,6 +1,7 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 
+mod n0000_template;
 mod n0001e_two_sum;
 mod n0002m_add_two_numbers;
 mod n0003m_longest_substring_without_repeating_characters;
@@ -18,3 +19,4 @@ mod n0014e_longest_common_prefix;
 mod n0015m_3sum;
 mod n0016m_3sum_closest;
 mod n0017m_letter_combinations_of_a_phone_number;
+mod n0018m_4sum;
