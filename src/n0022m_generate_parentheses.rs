@@ -3,46 +3,26 @@ pub struct Solution {}
 
 // START SUBMISSION CODE
 
-use std::collections::HashSet;
-use std::collections::HashMap;
 impl Solution {
     pub fn generate_parenthesis(n: i32) -> Vec<String> {
-        let mut cache: HashMap<i32, Vec<String>> = HashMap::new();
-        Self::calc_parenthesis(n, &mut cache)
+        let mut solution = vec![];
+        Self::solve(&mut solution, String::new(), 0, 0, n as usize);
+        solution
     }
 
-    fn merge_into(left: Vec<String>, right: Vec<String>, set: &mut HashSet<String>) {
-        for i in left.iter() {
-            for j in right.iter() {
-                set.insert(i.clone() + j);
-                set.insert(j.clone() + i);
-            }
+    fn solve(solution: &mut Vec<String>, cur: String, open: usize, closed: usize, max: usize) {
+        
+        if cur.len() == 2 * max {
+            solution.push(cur);
+            return
         }
-    }
 
-    fn calc_parenthesis(n: i32, cache: &mut HashMap<i32, Vec<String>>) -> Vec<String> {
-        match (cache.get(&n), n) {
-            (Some(v), _) => return v.clone(),
-            (None, 0) => return vec![],
-            (None, 1) => return vec![String::from("()")],
-            _ => {
-                let mut set = HashSet::new();
-                for i in 1..=n/2 {
+        if open < max {
+            Self::solve(solution, cur.clone() + "(", open + 1, closed, max);
+        }
 
-                    let left = Self::calc_parenthesis(i, cache);
-                    let right = Self::calc_parenthesis(n-i, cache);
-
-                    Self::merge_into(left, right, &mut set);
-                }
-
-                for p in Self::calc_parenthesis(n - 1, cache) {
-                    set.insert(String::from("(") + &p + ")");
-                }
-                
-                let solution: Vec<String> = set.into_iter().collect();
-                cache.insert(n, solution.clone());
-                return solution
-            }
+        if closed < open {
+            Self::solve(solution, cur + ")", open, closed + 1, max);
         }
     }
 }
