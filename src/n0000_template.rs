@@ -5,7 +5,7 @@ pub struct Solution {}
 
 
  
- // END SUBMISSION CODE
+// END SUBMISSION CODE
  
  #[cfg(test)]
  mod tests {
