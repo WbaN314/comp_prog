@@ -6,14 +6,14 @@ pub struct Solution {}
 impl Solution {
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
 
-        if (nums.len() == 0) {
+        if nums.len() == 0 {
             return 0
         }
 
         let mut last = nums[0];
         let mut slow_idx = 1;
         for i in 1..nums.len() {
-            if (last == nums[i]) {
+            if last == nums[i] {
                 continue
             }
             nums[slow_idx] = nums[i];
