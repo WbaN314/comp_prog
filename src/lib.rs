@@ -27,3 +27,5 @@ mod n0022m_generate_parentheses;
 mod n0023h_merge_k_sorted_lists;
 mod n0024m_swap_nodes_in_pairs;
 mod n0025h_reverse_nodes_in_k_group;
+mod n0026e_remove_duplicates_from_sorted_array;
+mod n0027e_remove_element;
