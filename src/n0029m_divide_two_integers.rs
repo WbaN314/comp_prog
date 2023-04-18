@@ -11,19 +11,23 @@ impl Solution {
         if dividend > 0 {dividend = -dividend};
         if divisor > 0 {divisor = -divisor};
 
+        // Improved division
         let mut result = 0;
-
-        while dividend <= divisor {
-            result -= 1;
-            dividend -= divisor;
+        for i in (0..divisor.leading_ones()).rev() {
+            while dividend <= divisor << i {
+                result += -1 << i;
+                dividend -= divisor << i;
+            }
         }
 
         if is_negative {
             result
-        } else if result == i32::MIN {
-            i32::MAX
         } else {
-            -result
+            if result == i32::MIN {
+                i32::MAX
+            } else {
+                -result
+            }
         }
     }
 }
@@ -53,5 +57,9 @@ impl Solution {
      #[test]
      fn test_5() {
         assert_eq!(Solution::divide(-2147483648, 1), -2147483648)
+     }
+     #[test]
+     fn test_6() {
+        assert_eq!(Solution::divide(2147483647, 3), 715827882)
      }
  }
