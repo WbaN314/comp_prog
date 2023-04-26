@@ -31,3 +31,4 @@ mod n0026e_remove_duplicates_from_sorted_array;
 mod n0027e_remove_element;
 mod n0028e_find_the_index_of_the_first_occurence_in_a_string;
 mod n0029m_divide_two_integers;
+mod n0030h_substring_with_concatenation_of_all_words;
