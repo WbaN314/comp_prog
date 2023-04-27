@@ -33,3 +33,4 @@ mod n0028e_find_the_index_of_the_first_occurence_in_a_string;
 mod n0029m_divide_two_integers;
 mod n0030h_substring_with_concatenation_of_all_words;
 mod n0031m_next_permutation;
+mod n0032h_longest_valid_parentheses;
