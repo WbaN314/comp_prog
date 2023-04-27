@@ -35,3 +35,4 @@ mod n0030h_substring_with_concatenation_of_all_words;
 mod n0031m_next_permutation;
 mod n0032h_longest_valid_parentheses;
 mod n0033m_search_in_rotated_sorted_array;
+mod n0034m_find_first_and_last_position_of_element_in_sorted_array;
