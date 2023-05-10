@@ -42,3 +42,4 @@ mod n0037h_sudoku_solver;
 mod n0038_count_and_say;
 mod n0039m_combination_sum;
 mod n0040m_combination_sum_ii;
+mod n0041h_first_missing_positive;
