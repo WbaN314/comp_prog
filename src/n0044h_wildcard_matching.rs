@@ -5,80 +5,30 @@ pub struct Solution {}
 
 impl Solution {
     pub fn is_match(s: String, p: String) -> bool {
-        let s: Vec<char> = s.chars().collect();
-        let p: Vec<char> = p.chars().collect();
+        let mut s_idx = 0;
+        let mut p_idx = 0;
+        let mut match_i = 0;
+        let mut star_i: i32= - 1;
 
-        let mut p_stack: Vec<Vec<char>> = Vec::new();
-        let mut l = 0;
-        for r in 0..p.len() {
-            match p[r] {
-                '*' => {
-                    if r > l {
-                        p_stack.push(p[l..r].to_vec());
-                    }
-                    if p_stack.last() != Some(&vec!['*']) {
-                        p_stack.push(vec!['*']);
-                    }
-                    l = r + 1;
-                },
-                _ if r == p.len() - 1 && p[l..].len() > 0 => {
-                    p_stack.push(p[l..].to_vec());
-                }
-                _ => ()
-            }
+        while s_idx < s.len() {
+            if p_idx < p.len() && p.as_bytes()[p_idx] as char == '*' { // if * in p
+                star_i = p_idx as i32; // set star_i to p_idx
+                match_i = s_idx; // set match_i to s_idx
+                p_idx += 1; // next p idx
+            } else if p_idx < p.len()
+                    && (s.as_bytes()[s_idx] == p.as_bytes()[p_idx] || p.as_bytes()[p_idx] as char =='?') { // if direct match 
+                s_idx += 1; // increase p idx
+                p_idx += 1; // increase s idx
+            } else if star_i >= 0 { // if star has been encountered (and no direct match as ifs before didnt hit)
+                match_i += 1; // increase match_i (what should be matched by *)
+                s_idx = match_i; // set s_idx to char after match by *
+                p_idx = (star_i + 1) as usize; // set p_idx to char after *
+            } else { return false; }
         }
-        p_stack = p_stack.into_iter().rev().collect();
-
-        // println!("{p_stack:?}");
-
-        Self::backtrack_solution(&s[..], &mut p_stack)
-    }
-
-    fn backtrack_solution(s: &[char], p_stack: &mut Vec<Vec<char>>) -> bool {
-        match p_stack.pop() {
-
-            Some(x) if x == vec!['*'] => {
-                for i in 0..=s.len() {
-                    if Self::backtrack_solution(&s[i..], p_stack) {
-                        return true
-                    }
-                }
-                p_stack.push(x);
-                return false
-            },
-            
-            Some(x) if s.len() < x.len() => {
-                p_stack.push(x);
-                return false
-            },
-
-            Some(x) if s.len() == 0 => {
-                p_stack.push(x);
-                return false
-            },
-
-            Some(x) => {
-                for i in 0..x.len() {
-                    if x.get(i) != s.get(i) && x[i] != '?' {
-                        p_stack.push(x);
-                        return false
-                    }
-                }
-                if Self::backtrack_solution(&s[x.len()..], p_stack) {
-                    return true
-                }
-                p_stack.push(x);
-                return false
-            },
-
-            None if s.len() > 0 => {
-                return false
-            },
-
-            None => {
-                return true
-            }
+        while p_idx < p.len() && p.as_bytes()[p_idx] as char == '*' { // run through remaining p chars if they are *
+            p_idx += 1;
         }
+        return p_idx == p.len();
     }
 }
  
@@ -90,11 +40,11 @@ impl Solution {
  
      #[test]
      fn test_1() {
-        assert_eq!(Solution::is_match(String::from("aabbccdd"), String::from("*")), true);
+        assert_eq!(Solution::is_match(String::from("ab"), String::from("*a")), false);
      }
      #[test]
      fn test_2() {
-        assert_eq!(Solution::is_match(String::from("aabbccdd"), String::from("a")), false);
+        assert_eq!(Solution::is_match(String::from("aa"), String::from("aa")), true);
      }
      #[test]
      fn test_3() {
@@ -106,7 +56,7 @@ impl Solution {
      }
      #[test]
      fn test_5() {
-        assert_eq!(Solution::is_match(String::from("aabbccdd"), String::from("a*c**d")), true);
+        assert_eq!(Solution::is_match(String::from("ccdd"), String::from("c*d")), true);
      }
      #[test]
      fn test_6() {
@@ -115,5 +65,9 @@ impl Solution {
      #[test]
      fn test_7() {
         assert_eq!(Solution::is_match(String::from("leetcode"), String::from("*e*t?d*")), false);
+     }
+     #[test]
+     fn test_8() {
+        assert_eq!(Solution::is_match(String::from("abbabaaabbabbaababbabbbbbabbbabbbabaaaaababababbbabababaabbababaabbbbbbaaaabababbbaabbbbaabbbbababababbaabbaababaabbbababababbbbaaabbbbbabaaaabbababbbbaababaabbababbbbbababbbabaaaaaaaabbbbbaabaaababaaaabb"), String::from("**aa*****ba*a*bb**aa*ab****a*aaaaaa***a*aaaa**bbabb*b*b**aaaaaaaaa*a********ba*bbb***a*ba*bb*bb**a*b*bb")), false);
      }
  }
