@@ -49,3 +49,4 @@ mod n0044h_wildcard_matching;
 mod n0045m_jump_game_ii;
 mod n0046m_permutations;
 mod n0047m_permutations_ii;
+mod n0048m_rotate_image;
