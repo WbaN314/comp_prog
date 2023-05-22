@@ -47,3 +47,4 @@ mod n0042h_trapping_rain_water;
 mod n0043m_multiply_strings;
 mod n0044h_wildcard_matching;
 mod n0045m_jump_game_ii;
+mod n0046m_permutations;
