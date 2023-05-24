@@ -52,3 +52,4 @@ mod n0047m_permutations_ii;
 mod n0048m_rotate_image;
 mod n0049m_group_anagrams;
 mod n0050m_pow_x_n;
+mod n0051h_n_queens;
