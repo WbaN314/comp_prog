@@ -56,3 +56,4 @@ mod n0051h_n_queens;
 mod n0052h_n_queens_ii;
 mod n0053m_maximum_subarray;
 mod n0054m_spiral_matrix;
+mod n0055m_jump_game;
