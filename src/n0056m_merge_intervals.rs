@@ -27,7 +27,7 @@ impl Solution {
 
 
         let mut start = 0;
-        let mut end = 0;
+        let mut end;
         for i in 0..a.len() - 1 {
             if a[i] > 0 && a[i+1] == 0 {
                 end = i + 1;
