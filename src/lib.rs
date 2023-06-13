@@ -61,3 +61,4 @@ mod n0056m_merge_intervals;
 mod n0057m_insert_interval;
 mod n0058e_length_of_last_word;
 mod n0059m_spiral_matrix_ii;
+mod n0060h_permutation_sequence;
