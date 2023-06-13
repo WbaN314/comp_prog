@@ -59,3 +59,4 @@ mod n0054m_spiral_matrix;
 mod n0055m_jump_game;
 mod n0056m_merge_intervals;
 mod n0057m_insert_interval;
+mod n0058e_length_of_last_word;
