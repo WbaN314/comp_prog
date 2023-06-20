@@ -17,7 +17,7 @@ impl Solution {
                 }
             }
         }
-        if (prepend) {
+        if prepend {
             new.insert(0,1);
         }
         new

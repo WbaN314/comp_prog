@@ -68,3 +68,4 @@ mod n0063m_unique_paths_ii;
 mod n0064m_minimum_path_sum;
 mod n0065h_valid_number;
 mod n0066e_plus_one;
+mod n0067e_add_binary;
