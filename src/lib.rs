@@ -72,3 +72,4 @@ mod n0067e_add_binary;
 mod n0068h_text_justification;
 mod n0069e_sqrt_x;
 mod n0070e_climbing_stairs;
+mod n0071m_simplify_path;
