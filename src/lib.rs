@@ -76,3 +76,4 @@ mod n0071m_simplify_path;
 mod n0072m_edit_distance;
 mod n0073m_set_matrix_zeroes;
 mod n0074m_search_a_2d_matrix;
+mod n0075m_sort_colors;
