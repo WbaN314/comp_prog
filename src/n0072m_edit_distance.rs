@@ -6,7 +6,7 @@ pub struct Solution {}
 impl Solution {
     pub fn min_distance(word1: String, word2: String) -> i32 {
        
-        let mut word1: Vec<char> = word1.chars().collect();
+        let word1: Vec<char> = word1.chars().collect();
         let word2: Vec<char> = word2.chars().collect();
         let mut cache = vec![vec![-1; word2.len() + 1]; word1.len() + 1];
 
