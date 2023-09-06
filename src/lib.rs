@@ -83,3 +83,4 @@ mod n0078m_subsets;
 mod n0079m_word_search;
 mod n0080m_remove_duplicates_from_sorted_array_ii;
 mod n0081m_searc_in_rotated_sorted_array_ii;
+mod n0082m_remove_duplicates_from_sorted_list_ii;
