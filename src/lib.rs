@@ -85,3 +85,4 @@ mod n0080m_remove_duplicates_from_sorted_array_ii;
 mod n0081m_searc_in_rotated_sorted_array_ii;
 mod n0082m_remove_duplicates_from_sorted_list_ii;
 mod n0083e_remove_duplicates_from_sorted_list;
+mod n0084h_largest_rectangle_in_histogram;
