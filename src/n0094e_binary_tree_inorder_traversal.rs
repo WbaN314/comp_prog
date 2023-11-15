@@ -40,8 +40,6 @@ impl Solution {
                 return inorder
             }
         };
-
-        inorder
     }
 }
  
