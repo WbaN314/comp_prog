@@ -97,3 +97,4 @@ mod n0092m_reverse_linked_list_ii;
 mod n0093m_restore_ip_addresses;
 mod n0094e_binary_tree_inorder_traversal;
 mod n0095m_unique_binary_search_trees_ii;
+mod n0096m_unique_binary_search_trees;
